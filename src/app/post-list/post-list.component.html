@@ -1,3 +1,10 @@
-<p>
-  post-list works!
-</p>
+<li [ngClass]="{'list-group-item': true, 'list-group-item-success': postLoveIts > 0,
+'list-group-item-danger': postLoveIts < 0}">
+
+<h3 class="pull-right" style="color: gray">{{postCreated_at | date: 'short'}}</h3>
+<h2 [ngStyle]="{color: getLoveIt()}" >{{postTitle}} </h2>
+<p [ngStyle]="{color: getLoveIt()}">{{postContent}}</p>
+
+<button class="btn btn-success" (click)="onLoveIt()">Love it!</button>
+<button class="btn btn-danger" (click)="onDontLoveIt()">Don't love it!</button>
+</li>
